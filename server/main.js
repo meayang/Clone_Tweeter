@@ -1,31 +1,10 @@
-const http = require('http');
-const fs = require('fs');
-const ejs = require('ejs');
-//const http2 = require('http2');
+ import express, { Router } from 'express';
+ const app = express();
 
-const name = 'skaru';
-const courses = [
-    {name: 'HTML'},
-    {name: 'CSS'},
-    {name: 'JS  '},
-];
+app.use(express.json())
 
-const server = http.createServer((req,res) => {
-    const url = req.url;
-    res.setHeader('Content-Type', 'text/html');
-    if(url === '/'){
-        ejs
-        .renderFile('./template/index.ejs', {name})
-        .then((data) => res.end(data));
-    }else if(url === '/Courses'){
-        ejs
-        .renderFile('./template/courses.ejs', {courses})
-        .then((data) => res.end(data));
-    }else {
-        ejs
-        .renderFile('./template/notfound.ejs', {name})
-        .then((data) => res.end(data));
-    };
+app.post('/', (req,res,next) => {
+    console.log(req.body);
 })
 
-server.listen(8080);
+app.listen(8080);
