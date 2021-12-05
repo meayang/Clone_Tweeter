@@ -332,3 +332,6 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+client/package-lock.json
+package-lock.json
+server/package-lock.json
