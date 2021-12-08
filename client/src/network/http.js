@@ -11,7 +11,6 @@ export default class HttpClient {
                 ...options.headers,
             }
         });
-
         let data;
         try{
             data = await res.json();
